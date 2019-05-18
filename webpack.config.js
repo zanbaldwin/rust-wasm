@@ -10,7 +10,20 @@ module.exports = {
     output: {
         path: path.resolve(__dirname, 'build/dist'),
         filename: '[name].[chunkhash:8].js?[contenthash]',
-        chunkFilename: '[name].[chunkhash].chunk.js',
+        chunkFilename: '[chunkhash].chunk.js',
+    },
+    module: {
+        rules: [
+            {
+                test: /\.wasm$/,
+                type: "webassembly/experimental"
+            },
+        //     {
+        //         test: /\.tsx?$/,
+        //         use: 'ts-loader',
+        //         exclude: /node_modules/,
+        //     }
+        ],
     },
     plugins: [
         new CleanWebpackPlugin,
