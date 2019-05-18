@@ -1,15 +1,18 @@
-# Hello, World!
+# WebAssembly Playground
 
-[View documentation for this example online][dox] or [View compiled example
-online][compiled]
+Because I wanted to see if I could get WASM working in the browser, written in Rust, loaded by Typescript.
+Next up is drawing to a canvas, then WebGL, then writing compiled WASM server modules running in NodeJS.
 
-[compiled]: https://rustwasm.github.io/wasm-bindgen/exbuild/hello_world/
-[dox]: https://rustwasm.github.io/wasm-bindgen/examples/hello-world.html
+## Prerequisites
 
-You can build the example locally with:
+- Node JS and a package manager (Yarn is recommended, though NPM should also work).
+- Rust Compiler and the WASM (`wasm32-unknown-unknown`) build target toolchain.
 
+## Building
+
+```bash
+yarn install
+yarn build
 ```
-$ npm run serve
-```
 
-and then visiting http://localhost:8080 in a browser should run the example!
+Open `build/dist/index.html` in WASM-compatible browser.
