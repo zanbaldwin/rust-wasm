@@ -5,8 +5,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const WasmPackPlugin = require("@wasm-tool/wasm-pack-plugin");
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
+    mode: 'none',
+    entry: './src/bootstrap.js',
     output: {
         path: path.resolve(__dirname, 'build/dist'),
         filename: '[name].[chunkhash:8].js?[contenthash]',
@@ -18,12 +18,15 @@ module.exports = {
                 test: /\.wasm$/,
                 type: "webassembly/experimental"
             },
-        //     {
-        //         test: /\.tsx?$/,
-        //         use: 'ts-loader',
-        //         exclude: /node_modules/,
-        //     }
+            {
+                test: /\.tsx?$/,
+                use: 'ts-loader',
+                exclude: /node_modules/,
+            }
         ],
+    },
+    resolve: {
+        extensions: [ '.ts', '.tsx', '.js', '.jsx', '.wasm' ]
     },
     plugins: [
         new CleanWebpackPlugin,
