@@ -11,15 +11,15 @@ pub fn greet(name: &str) {
 }
 
 #[wasm_bindgen]
-pub fn nth_prime_number(n: i32) -> i32 {
-    let mut primes: Vec<i32> = vec![2];
-    let mut position: i32 = 3;
+pub fn nth_prime_number(n: i32) -> String {
+    let mut primes: Vec<i64> = vec![2];
+    let mut position: i64 = 3;
 
     if n <= 2 {
-        return (n as i32) + 1;
+        return (n + 1).to_string();
     }
 
-    let mut position: i32 = 3;
+    let mut position: i64 = 3;
 
     loop {
         let mut size = primes.len();
@@ -37,7 +37,7 @@ pub fn nth_prime_number(n: i32) -> i32 {
 
         if is_position_prime {
             if size == (n as usize) - 1 {
-                return position;
+                return position.to_string();
             } else {
                 primes.push(position);
             }

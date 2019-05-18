@@ -13,6 +13,7 @@ class WasmApplication
 
     run(): void
     {
+        this.module.greet('Zan');
         while (true) {
             let n = parseInt(prompt('Enter a number to find the nth prime number.') || '1');
             let start = performance.now();
@@ -23,7 +24,7 @@ class WasmApplication
         }
     }
 
-    getNthPrimeNumber(n: number): number
+    getNthPrimeNumber(n: number): string
     {
         return this.module.nth_prime_number(n);
     }
